@@ -189,6 +189,11 @@ body {
 .dark-aqua{
     color:#226069;
 }
+
+
+.white {
+    color: #fff;
+}
 ol {
     list-style: none;
 }
