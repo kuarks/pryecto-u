@@ -1,0 +1,76 @@
+---
+layout: main
+title: 'Contáctanos para cualquier duda u opinión'
+permalink: 'contacto'
+---
+
+<style>
+        body, #top{
+            background-color: #34ace0;
+            color: #000;
+        }
+        .line-black {
+            border: 1px solid #000;
+            margin: 20px 0;
+        }
+        #grid p {
+            margin: 1.5em 0;
+        }
+        .author {
+            color: rgba(0,0,0, 0.4);
+        }
+        .link {
+            color: #fff;
+        }
+        .fab {
+            font-size: 1.37em;
+            margin-right: 1.5em;
+        }
+        .media-i{
+            float: right;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        #feedback {
+            width: 100%;
+            border: 2px solid rgba(0,0,0,.6);
+            background-color: rgba(0,0,0,0);
+            padding: .8em;
+            font-family: Poppins;
+            font-size: .8em;
+            margin-bottom: 1.7em;
+        }
+        #submit {
+            padding: .7em;
+            background-color: rgba(0,0,0,.9);
+            color: #fff;
+            border:none;
+            font-family: IBMPlexBold;
+            font-size: 1em;
+            letter-spacing: .07em;
+        }
+        #feedback:focus{
+            outline: none !important;
+            border: 2px solid rgba(0,0,0);
+            box-shadow: none;
+        }
+
+    </style>
+
+<div>
+        
+        <h1>
+            {{page.title}}
+        </h1>
+        <hr class="line-black">
+
+        <br>
+        <p>Tu opinión es importante, no dejes pasar la oportunidad de hacernos saber lo que piensas del proyecto y sobre todo qué podemos hacer para mejorarlo.</p>
+        <form method="post" id="formFor" accept-charset="UTF-8" action="https://www.formfor.com/submissions/dADVEMNEVGdDtz7A5wgWPQQL" target="_blank">
+            <textarea name="feedback" id="feedback" cols="30" rows="10" class=""></textarea>
+            <input type="text" name="_formfor_help" style="display:none;">
+            <input type="submit" name="commit" value="Enviar" id="submit">
+        </form>
+    </div>
+    
+    <script type="text/javascript" src="https://www.formfor.com/analytics_script_0.1.0.js"></script>

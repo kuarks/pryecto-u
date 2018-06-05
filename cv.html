@@ -1,0 +1,149 @@
+---
+layout: main
+title: 'Curriculum'
+permalink: 'curriculum'
+description: 
+---
+
+<style>
+        body, #top{
+            background-color: #f6b93b;
+            color: #000;
+        }
+        .line-black {
+            border: 1px solid #000;
+            margin: 20px 0;
+        }
+        #grid p {
+            margin: 1.5em 0;
+        }
+        .author {
+            color: rgba(0,0,0, 0.4);
+        }
+        .link {
+            color: #fff;
+        }
+        .fab {
+            font-size: 1.37em;
+            margin-right: 1.5em;
+        }
+        .media-i{
+            float: right;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+        #pause {
+            display:none;
+        }
+
+        .avatar{
+            width: 160px;
+            height: 160px;
+            border: 7px solid #fff;
+            border-radius: 100px;
+            background-image: url('images/dr.jpg');
+            background-size: 160px;
+            float: right;
+            margin-right: .4em;
+            margin: 0 1em 1em;
+        }
+
+    </style>
+
+<div>
+        
+        <h1>
+            {{page.title}}
+        </h1>
+        <hr class="line-black">
+        <p>
+            
+            <!-- <i class="fab fa-twitter link"></i><i class="fab fa-facebook-f link"></i> <i class="fab fa-linkedin-in link"></i> -->
+            
+        </p>
+    
+        <i id="pause" class="media-i fas fa-pause"></i>   
+        <i id="speech" class="media-i fas fa-headphones"></i>
+        <!-- <i class="media-i fas fa-video"></i> -->
+    
+        <p>
+                <!-- <iframe width="854" height="480" src="https://www.youtube.com/embed/Y2U47CF6cQo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+        </p>
+        <br>
+
+        
+        <p>
+            <div class="avatar"></div> 
+            Catedrático en el Instituto de Ciencias Biomédicas (ICB) de la UACJ desde hace más de 30 años. Imparte cursos tanto en pregrado como posgrado. Secretario General del Sindicato de Maestros del ICB durante el periodo de 1990 a 1994;  Jefe del Departamento de Estomatología durante el período de 1994 a 1999; Director del Instituto de Ciencias Biomédicas (ICB) de 2000 a 2006.
+        </p>
+        <p>
+            Maestría en Implantología Oral, por la Universidad de Goethe, Frankfurt am Main Alemania. Médico Cirujano Dentista, egresado de la Universidad Autónoma de Ciudad Juárez.  También cuenta con Posgrado en Periodoncia y estudios de especialización en Implantología en instituciones estadounidenses como la Universidad de Miami, el Instituto de Implantología Misch, en Pittsburgh, el Centro de Ciencias de la Salud de la Universidad de Texas, en San Antonio; el Colegio Médico de Georgia, la Universidad de Lomalinda, en California, la Universidad de Nueva York, la Universidad Nova, en Florida, la Universidad de Michigan en Ann Harbor. 
+        </p>
+
+        <p>
+            Conferencista en el área de Implantología a nivel nacional, destacando entre otras las conferencias dictadas en el Congreso de la Asociación Mexicana de Implantología Bucal A.C. celebrada en Tequesquitengo, Morelos (Octubre 2004); en la Universidad Autónoma de Baja California Norte en Mexicali, BCN (Octubre 1998); en el V Congreso Iberolatinoamericano de Odontología celebrado en Mazatlán, Sinaloa (junio 2003);  ganador del Segundo Premio REACH al Conferencista Nacional dentro del Congreso de la Asociación Mexicana de Periodontología en Mazatlán, Sinaloa (Septiembre 1998).
+        </p>
+        <p>
+            De 1978 a la fecha es miembro de la Academia Americana de Implantología Fellow, del Colegio Internacional de Implantología Oral, del Colegio Nacional de Cirujanos Dentistas Sección Ciudad Juárez, de la Academia de Óseo-integración, de la Asociación Mexicana de Periodontología; socio fundador del Colegio de Periodoncistas del Estado de Chihuahua y miembro del ICOI  (The Ambassadors’ Circle).
+        </p>
+        <p>
+            En el ejercicio de la práctica privada, es fundador y director general del Consorcio Núcleo Dental e integrante de COPARMEX y fundador e impulsor del Clúster de Turismo Médico en la región Juárez- El Paso.
+        </p>
+        
+        {% include social-share.html %}
+    </div>
+    
+    <script>
+    
+            class Speech {
+                constructor(playButton, pauseButton,text){
+                    this.playButton = playButton
+                    this.pauseButton = pauseButton
+                    this.text = text
+                    this.hold = false
+                }
+                set(){
+                    this.playButton.addEventListener('click', (e) => {
+                        this.play()
+                    })
+                    this.pauseButton.addEventListener('click', (e) => {
+                        this.pause()
+                    })
+                }
+                play(){
+                    this.playButton.style.display = 'none'
+                    if(this.hold === false){
+                        responsiveVoice.speak(text, "Spanish Latin American Male", {pitch: 1, rate: 1.1})
+                    }else {
+                        responsiveVoice.resume()
+                    }
+                    
+                    this.pauseButton.style.display = 'block'
+                }
+                pause(){
+                    this.hold = true
+                    this.pauseButton.style.display = 'none'
+                    responsiveVoice.pause()
+                    this.playButton.style.display = 'block'
+                }
+            }
+    
+            let text = `
+            Dr. Ernesto Morán García.
+    
+            Catedrático en el Instituto de Ciencias Biomédicas (ICB) de la UACJ desde hace más de 30 años. Imparte cursos tanto en pregrado como posgrado. Secretario General del Sindicato de Maestros del ICB durante el periodo de 1990 a 1994; Jefe del Departamento de Estomatología durante el período de 1994 a 1999; Director del Instituto de Ciencias Biomédicas (ICB) de 2000 a 2006.
+
+            Maestría en Implantología Oral, por la Universidad de Goethe, Frankfurt am Main Alemania. Médico Cirujano Dentista, egresado de la Universidad Autónoma de Ciudad Juárez. También cuenta con Posgrado en Periodoncia y estudios de especialización en Implantología en instituciones estadounidenses como la Universidad de Miami, el Instituto de Implantología Misch, en Pittsburgh, el Centro de Ciencias de la Salud de la Universidad de Texas, en San Antonio; el Colegio Médico de Georgia, la Universidad de Lomalinda, en California, la Universidad de Nueva York, la Universidad Nova, en Florida, la Universidad de Michigan en Ann Harbor.
+
+            Conferencista en el área de Implantología a nivel nacional, destacando entre otras las conferencias dictadas en el Congreso de la Asociación Mexicana de Implantología Bucal A.C. celebrada en Tequesquitengo, Morelos (Octubre 2004); en la Universidad Autónoma de Baja California Norte en Mexicali, BCN (Octubre 1998); en el V Congreso Iberolatinoamericano de Odontología celebrado en Mazatlán, Sinaloa (junio 2003); ganador del Segundo Premio REACH al Conferencista Nacional dentro del Congreso de la Asociación Mexicana de Periodontología en Mazatlán, Sinaloa (Septiembre 1998).
+
+            De 1978 a la fecha es miembro de la Academia Americana de Implantología Fellow, del Colegio Internacional de Implantología Oral, del Colegio Nacional de Cirujanos Dentistas Sección Ciudad Juárez, de la Academia de Óseo-integración, de la Asociación Mexicana de Periodontología; socio fundador del Colegio de Periodoncistas del Estado de Chihuahua y miembro del ICOI (The Ambassadors’ Circle).
+
+            En el ejercicio de la práctica privada, es fundador y director general del Consorcio Núcleo Dental e integrante de COPARMEX y fundador e impulsor del Clúster de Turismo Médico en la región Juárez- El Paso.
+            `
+            let speechPlay = document.querySelector('#speech')
+            let speechPause = document.querySelector('#pause')
+            let speech = new Speech(speechPlay,speechPause,text).set()
+            
+            
+        </script>
